@@ -22,7 +22,7 @@ pull_stats <- function(x){
 
 
 
-
+pokestats<-pull_stats(pokemon)
 
 #note outliers in the plots vs HP, are these the same pokemon with special stats.
 
