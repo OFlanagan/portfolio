@@ -1,8 +1,8 @@
 #server.R
 library(shiny)
 
-function(input,output){
+shinyServer(function(input,output){
   
   
   
-}
+})

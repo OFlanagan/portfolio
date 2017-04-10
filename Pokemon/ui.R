@@ -1,6 +1,6 @@
 #ui.R
-fluidPage(
+shinyUI(fluidPage(
+  titlePanel("Welcome to Pokemon")
   
   
-  
-)
+))
