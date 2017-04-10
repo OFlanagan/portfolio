@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "pokemon <- readRDS(\"pokemon.rds\")\n\n#This splits the pokemon into tibbles by their Type 1\nTypes<-split(pokemon,pokemon$`Type 1`)\nfor (i in 1:length(Types)){\n  assign(Types[[i]]$`Type 1`[i],Types[[i]])\n}\n\n\n#pull_stats is a function that retreives the statistics for the pokemon from the full set\npull_stats <- function(x){\n  data.frame(\"HP\"=x$HP,\n             \"Attack\"=x$Attack,\n             \"Defense\"=x$Defense,\n             \"Sp Attack\"=x$`Sp. Atk`,\n             \"Sp Defense\"=x$`Sp. Def`,\n             \"Speed\"=x$Speed)\n}\n\npokestats<- pull_stats(pokemon)\nhead(pokestats)\npairs(pokestats)\n\n\n\n#note outliers in the plots vs HP, are these the same pokemon with special stats.\n\nhigh_HP<-pokemon[which(pokestats$HP>200),]\nhigh_attack<-pokemon[which(pokestats$Attack>180),]\nhigh_defense<-pokemon[which(pokestats$Defense>200),]\nhigh_SpAttack<-pokemon[which(pokestats$Sp.Attack>180),]\nhigh_SpDefense<-pokemon[which(pokestats$Sp.Defense>180),]\nhigh_speed<-pokemon[which(pokestats$Speed>170),]\nhigh_stats<-rbind(high_HP,high_attack,high_defense,high_SpAttack,high_SpDefense,high_speed)\n\n\n\npairs(pull_stats(Bug))\n\n#can we use a cluster algorithm for this e.g. k-means?\n#general clusters form for most stats, what happens if we segregate into types?\n#would be good to have evolution stage as a variable\n#what level are these pokemon?\n",
+    "created" : 1491803661226.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1818778667",
+    "id" : "2FC2C101",
+    "lastKnownWriteTime" : 1491811708,
+    "last_content_update" : 1491811708300,
+    "path" : "~/R/portfolio/pokemon.R",
+    "project_path" : "pokemon.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

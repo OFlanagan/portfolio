@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "test\n",
+    "created" : 1491802764272.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1001993670",
+    "id" : "CF0C397D",
+    "lastKnownWriteTime" : 1491802769,
+    "last_content_update" : 1491803660156,
+    "path" : "~/R/portfolio/test.R",
+    "project_path" : "test.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
