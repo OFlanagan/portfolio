@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(readr)\npokemon <- read_csv(\"~/Downloads/pokemon.zip\")\npokestats<- data.frame(\"HP\"=pokemon$HP,\n                       \"Attack\"=pokemon$Attack,\n                       \"Defense\"=pokemon$Defense,\n                       \"Sp Attack\"=pokemon$`Sp. Atk`,\n                       \"Sp Defense\"=pokemon$`Sp. Def`,\n                       \"Speed\"=pokemon$Speed)\nhead(pokestats)\npairs(pokestats)\n#note outliers in the plots vs HP, are these the same pokemon with special stats.\n#can we use a cluster algorithm for this e.g. k-means?\n#general clusters form for most stats, what happens if we segregate into types?\n#would be good to have evolution stage as a variable\n#what level are these pokemon?",
+    "created" : 1491803385308.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3047984134",
+    "id" : "ADF78BA6",
+    "lastKnownWriteTime" : 1491803084,
+    "last_content_update" : 1491803084,
+    "path" : "~/portfolio/pokemon.R",
+    "project_path" : "pokemon.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

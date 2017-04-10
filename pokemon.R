@@ -1,5 +1,4 @@
-library(readr)
-pokemon <- read_csv("~/Downloads/pokemon.zip")
+pokemon <- readRDS("pokemon.rds")
 pokestats<- data.frame("HP"=pokemon$HP,
                        "Attack"=pokemon$Attack,
                        "Defense"=pokemon$Defense,
