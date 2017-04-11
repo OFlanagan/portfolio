@@ -59,6 +59,7 @@ shinyServer(function(input,output){
     #need to take input stat and range and use to display only that data
     
     type <- switch(input$type,
+                   "All"=pokemon,
                    "Bug"=Bug,
                    "Dark"=Dark,
                    "Dragon"=Dragon,

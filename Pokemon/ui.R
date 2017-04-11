@@ -1,5 +1,8 @@
 #ui.R
-shinyUI(fluidPage(
+shinyUI(
+  navbarPage("Navbar",
+             tabPanel("Summary",
+  fluidPage(
   titlePanel("Welcome to Pokemon"),
   
   mainPanel(plotOutput("plot")),
@@ -26,6 +29,11 @@ shinyUI(fluidPage(
              ),
   
   dataTableOutput("table")
+)),
+
+  tabPanel("Comparison",
+           titlePanel("TEST")
   
-  
-))
+           )
+)
+)
