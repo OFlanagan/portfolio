@@ -1,15 +1,15 @@
 #ui.R
 shinyUI(fluidPage(
-  titlePanel("Welcome to the bug Pokemon"),
+  titlePanel("Welcome to Pokemon"),
   
   mainPanel(plotOutput("plot")),
   
   selectInput("type",
               label="What Type of Pokemon",
-              choices = list("Bug","Dark","Dragon","Electric","Fairy","Fighting","Fire",
+              choices = list("All","Bug","Dark","Dragon","Electric","Fairy","Fighting","Fire",
                              "Ghost","Grass","Ground","Ice","Normal","Poison","Psychic",
                              "Steel","Water"),
-              selected="Bug"),
+              selected="All"),
   
   
   selectInput("stat", 

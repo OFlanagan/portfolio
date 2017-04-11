@@ -13,6 +13,7 @@ shinyServer(function(input,output){
   output$plot <- renderPlot({
     
     type <- switch(input$type,
+                   "All"=pokemon,
                    "Bug"=Bug,
                    "Dark"=Dark,
                    "Dragon"=Dragon,
@@ -50,7 +51,7 @@ shinyServer(function(input,output){
     colors<-sapply(sort(type$Attack),coloring)
     
     ggplot(data=type,
-           aes(type$Attack))+geom_histogram(bins=length(type$Attack),fill=colors)
+           aes(plotting))+geom_histogram(bins=length(plotting),fill=colors)
                
     })
   

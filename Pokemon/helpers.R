@@ -22,19 +22,6 @@ pull_stats <- function(x){
 
 
 
-pokestats<-pull_stats(pokemon)
-
-#note outliers in the plots vs HP, are these the same pokemon with special stats.
-
-high_HP<-pokemon[which(pokestats$HP>200),]
-high_attack<-pokemon[which(pokestats$Attack>180),]
-high_defense<-pokemon[which(pokestats$Defense>200),]
-high_SpAttack<-pokemon[which(pokestats$Sp.Attack>180),]
-high_SpDefense<-pokemon[which(pokestats$Sp.Defense>180),]
-high_speed<-pokemon[which(pokestats$Speed>170),]
-high_stats<-rbind(high_HP,high_attack,high_defense,high_SpAttack,high_SpDefense,high_speed)
-
-
 #can we use a cluster algorithm for this e.g. k-means?
 #general clusters form for most stats, what happens if we segregate into types?
 #would be good to have evolution stage as a variable
