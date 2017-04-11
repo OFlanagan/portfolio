@@ -9,7 +9,15 @@ shinyUI(fluidPage(
            choices = list("HP","Attack","Defense","Special Attack",
                           "Special Defense","Speed"),
            selected = "HP"),
-  textOutput("text1")
+  textOutput("text1"),
+  
+  sliderInput("range",
+             "Stat level",
+             0,300,c(0,300)
+             
+             ),
+  
+  dataTableOutput("table")
   
   
 ))
