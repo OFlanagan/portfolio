@@ -5,50 +5,87 @@ source("helpers.R")
 shinyServer(function(input,output){
   
 
+
   
   
   
   
   output$plot <- renderPlot({
     
+    type <- switch(input$type,
+                   "Bug"=Bug,
+                   "Dark"=Dark,
+                   "Dragon"=Dragon,
+                   "Electric"=Electric,
+                   "Fairy"=Fairy,
+                   "Fighting"=Fighting,
+                   "Fire"=Fire,
+                   "Ghost"=Ghost,
+                   "Grass"=Grass,
+                   "Ground"=Ground,
+                   "Ice"=Ice,
+                   "Normal"=Normal,
+                   "Poison"=Poison,
+                   "Psychic"=Psychic,
+                   "Steel"=Steel,
+                   "Water"=Water)
+    
     plotting <- switch(input$stat,
-                       "HP"=Bug$HP,
-                       "Attack"=Bug$Attack,
-                       "Defense"=Bug$Defense,
-                       "Special Attack"=Bug$`Sp. Atk`,
-                       "Special Defense"=Bug$`Sp. Def`,
-                       "Speed"=Bug$Speed
+                       "HP"=type$HP,
+                       "Attack"=type$Attack,
+                       "Defense"=type$Defense,
+                       "Special Attack"=type$`Sp. Atk`,
+                       "Special Defense"=type$`Sp. Def`,
+                       "Speed"=type$Speed
                        
     )
     coloring<-function(x) {
       if(x >= input$range[1] & x <= input$range[2])
-      {color="black"}
+      {color="blue"}
       else
-      {color="blue"}  
+      {color="black"}  
     }
     
     
-    colors<-sapply(sort(Bug$Attack),coloring)
+    colors<-sapply(sort(type$Attack),coloring)
     
-    ggplot(data=Bug,
-           aes(Bug$Attack))+geom_histogram(bins=length(Bug$Attack),fill=colors)
+    ggplot(data=type,
+           aes(type$Attack))+geom_histogram(bins=length(type$Attack),fill=colors)
                
     })
   
   output$table <- renderDataTable({
     #need to take input stat and range and use to display only that data
     
+    type <- switch(input$type,
+                   "Bug"=Bug,
+                   "Dark"=Dark,
+                   "Dragon"=Dragon,
+                   "Electric"=Electric,
+                   "Fairy"=Fairy,
+                   "Fighting"=Fighting,
+                   "Fire"=Fire,
+                   "Ghost"=Ghost,
+                   "Grass"=Grass,
+                   "Ground"=Ground,
+                   "Ice"=Ice,
+                   "Normal"=Normal,
+                   "Poison"=Poison,
+                   "Psychic"=Psychic,
+                   "Steel"=Steel,
+                   "Water"=Water)
+    
     current_stat<- switch(input$stat,
-              "HP"=Bug$HP,
-              "Attack"=Bug$Attack,
-              "Defense"=Bug$Defense,
-              "Special Attack"=Bug$`Sp. Atk`,
-              "Special Defense"=Bug$`Sp. Def`,
-              "Speed"=Bug$Speed
+              "HP"=type$HP,
+              "Attack"=type$Attack,
+              "Defense"=type$Defense,
+              "Special Attack"=type$`Sp. Atk`,
+              "Special Defense"=type$`Sp. Def`,
+              "Speed"=type$Speed
     )
     
     
-    newdata <- subset(Bug, current_stat >= input$range[1]  & current_stat <= input$range[2])
+    newdata <- subset(type, current_stat >= input$range[1]  & current_stat <= input$range[2])
     newdata
     
     

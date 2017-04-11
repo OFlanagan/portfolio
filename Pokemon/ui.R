@@ -4,6 +4,14 @@ shinyUI(fluidPage(
   
   mainPanel(plotOutput("plot")),
   
+  selectInput("type",
+              label="What Type of Pokemon",
+              choices = list("Bug","Dark","Dragon","Electric","Fairy","Fighting","Fire",
+                             "Ghost","Grass","Ground","Ice","Normal","Poison","Psychic",
+                             "Steel","Water"),
+              selected="Bug"),
+  
+  
   selectInput("stat", 
            label = "Choose a Stat",
            choices = list("HP","Attack","Defense","Special Attack",
