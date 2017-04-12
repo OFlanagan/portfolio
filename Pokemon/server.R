@@ -5,11 +5,6 @@ source("helpers.R")
 shinyServer(function(input,output){
   
 
-
-  
-  
-  
-  
   output$plot <- renderPlot({
     
     type <- switch(input$type,

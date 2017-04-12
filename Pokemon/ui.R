@@ -1,6 +1,7 @@
 #ui.R
 shinyUI(
-  navbarPage("Navbar",
+  navbarPage("Pokemon",
+#Page 1             
              tabPanel("Summary",
   fluidPage(
   titlePanel("Welcome to Pokemon"),
@@ -31,6 +32,7 @@ shinyUI(
   dataTableOutput("table")
 )),
 
+#Page 2
   tabPanel("Comparison",
            titlePanel("TEST")
   
