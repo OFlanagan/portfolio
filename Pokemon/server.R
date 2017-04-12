@@ -37,23 +37,16 @@ shinyServer(function(input,output){
                        "Defense"=type$Defense,
                        "Special Attack"=type$`Sp. Atk`,
                        "Special Defense"=type$`Sp. Def`,
-                       "Speed"=type$Speed
+                       "Speed"=type$Speed)
                        
-    )
-    coloring<-function(x) {
-      if(x >= input$range[1] & x <= input$range[2])
-      {color="blue"}
-      else
-      {color="black"}  
-    }
-    
-    
-    colors<-sapply(sort(type$Attack),coloring)
-    
-    ggplot(data=type,
-           aes(plotting))+geom_histogram(bins=length(plotting),fill=colors)
-               
-    })
+ 
+  
+ggplot(data=type,aes_string(input$stat)) +
+    geom_histogram(data=subset(type,plotting<input$range[1],binwidth=10), fill="dark green",color="black")+
+    geom_histogram(data=subset(type,plotting>=input$range[1] & plotting<input$range[2],binwidth=10),fill="blue",color="black")+
+    geom_histogram(data=subset(type,plotting>=input$range[2],binwidth=10),fill="dark green",color="black")
+  
+    }) 
   
   output$table <- renderDataTable({
     #need to take input stat and range and use to display only that data
